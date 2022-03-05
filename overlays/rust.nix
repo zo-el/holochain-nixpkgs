@@ -14,7 +14,7 @@ self: super:
         "x86_64-apple-darwin"
       ];
 
-      mkRust = { track, version }: self.rust-bin."${track}"."${version}".default.override {
+      mkRust = { track, version }: self.rust-bin."stable"."1.58.1".default.override {
         inherit extensions targets;
       };
 

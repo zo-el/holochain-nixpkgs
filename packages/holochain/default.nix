@@ -104,7 +104,7 @@ let
     , cargoBuildFlags ? [ ]
     , binsFilter ? null
     , binaryPackagesResult ? binaryPackages { inherit url rev sha256 binsFilter; }
-    , rustVersion
+    , rustVersion ? "1.58.1"
     }:
     let
       filteredBinariesCompat = binaryPackagesResult.binariesCompatFiltered;
@@ -116,7 +116,7 @@ let
         leaveDotGit = false;
       };
 
-      rust = mkRust { track = "stable"; version = "1.58.1"; };
+      rust = mkRust { track = "stable"; version = "1.58.1"; }; #rustVersion
       rustPlatform = makeRustPlatform { rustc = rust; cargo = rust; };
 
     in
@@ -197,7 +197,7 @@ let
     , sha256
     , cargoLock
     , binsFilter
-    , rustVersion
+    , rustVersion ? "1.58.1"
     }:
     let
       binaryPackagesResult = binaryPackages { inherit url rev sha256 binsFilter; };
