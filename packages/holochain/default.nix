@@ -116,7 +116,7 @@ let
         leaveDotGit = false;
       };
 
-      rust = mkRust { track = "stable"; version = rustVersion; };
+      rust = mkRust { track = "stable"; version = "1.58.1"; };
       rustPlatform = makeRustPlatform { rustc = rust; cargo = rust; };
 
     in
